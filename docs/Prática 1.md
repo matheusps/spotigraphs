@@ -36,7 +36,6 @@ O grafo gerado pelos dados será construído considerando os artistas como vért
 **1.**
 
 &nbsp;
-
   R -
 &nbsp;
 **2.**
