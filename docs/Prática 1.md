@@ -34,10 +34,10 @@ O grafo gerado pelos dados será construído considerando os artistas como vért
 ## Perguntas a serem respondidas
 
 **1.**
-  * R - *
+  R -
 **2.**
-  * R - *
+  R -
 **3.**
-  * R - *
+  R -
 **4.**
-  * R - *
+  R -
