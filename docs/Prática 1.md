@@ -33,25 +33,22 @@ O grafo gerado pelos dados será construído considerando os artistas como vért
 
 ## Perguntas a serem respondidas
 
-**1.**
+**1.** Dado que uma playlist é formada por um conjunto de artistas, e que estes artistas são representados por vértices com arestas de saída. Qual ou quais os artistas mais indicados a serem adicionados a lista, ou seja, qual o nó não pertencente a *playlist* que tem o maior grau de entrada?
 
 &nbsp;
   R -
   
-
-**2.**
-
-&nbsp;
-  R -
-  
-
-**3.**
+**2.** O grafo formado pelos artistas quem compõem uma playlist é conectado?
 
 &nbsp;
   R -
   
+**3.** Existe um artista que representa um vértice separador no grafo da playlist, caso ela seja conectada?
 
-**4.**
+&nbsp;
+  R -
+  
+**4.** O grafo de duas playlists em que um mesmo artista está presente é conectado?
 
 &nbsp;
   R -
