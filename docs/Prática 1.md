@@ -29,11 +29,15 @@ O *spotify* oferece um serviço de músicas onde os usuário podem construir lis
 
 ## Grafo
 
-O grafo gerado pelos dados será construído considerando os artistas como vértices que estão conectados por arestas direcionadas de acordo com a lista de relacionados, construindo assim um dígrafo. Desta forma, se existirem conjuntos de artista que não se relacionam, teremos grafos desconectados.
+O grafo gerado pelos dados será construído considerando os artistas, playlist e musica, como vértices, que estão conectados por arestas direcionadas entre si, como podemos visualiar na imagem abaixo:
+
+![alt text](https://github.com/matheusps/spotigraphs/blob/master/imgs/graph.png "Prototipagem Grafo")
+
+Dessa forma obtemos uma um dígrafo. Nesse digrafo temos que, uma playlist que 'possui' um artista assim como 'possui' uma musica. Um artista, por sua vez, 'possui' uma musica. Então, se existirem conjuntos de artistas que não se relacionam, teremos grafos desconectados.
 
 ## Perguntas a serem respondidas
 
-**1.** Dado que uma playlist é formada por um conjunto de artistas, e que estes artistas são representados por vértices com arestas de saída. Qual ou quais os artistas mais indicados a serem adicionados a lista, ou seja, qual o nó não pertencente a *playlist* que tem o maior grau de entrada?
+**1. Qual ou quais os artistas mais indicados a serem adicionados a lista, ou seja, qual o nó não pertencente a *playlist* que tem o maior grau de entrada?**
 
 &nbsp;
   R -
@@ -49,6 +53,21 @@ O grafo gerado pelos dados será construído considerando os artistas como vért
   R -
   
 **4.** O grafo de duas playlists em que um mesmo artista está presente é conectado?
+
+&nbsp;
+  R -
+  
+**5. Qual artista seria mais ecletico, ou seja, estaria em o maior numero de playlists com estilos diferenciados?**
+
+&nbsp;
+  R -
+  
+**6. Será que o artista que está em um maior numero de playlists é o artista mais ouvido?**
+
+&nbsp;
+  R -
+  
+**7. Será que a musica que está em um maior numero de playlists é a musica mais ouvida?**
 
 &nbsp;
   R -
