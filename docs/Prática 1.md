@@ -32,7 +32,7 @@ O *spotify* oferece um serviço de músicas onde os usuário podem construir lis
 
 O grafo gerado pelos dados será construído considerando os artistas, playlist e música, como vértices, que estão conectados por arestas direcionadas entre si, como podemos visualizar na imagem abaixo:
 
-![alt text](../imgs/graph.png "Prototipagem Grafo")
+![alt text](../imgs/graph.jpg "Prototipagem Grafo")
 
 Dessa forma obtemos uma um dígrafo. Nesse digrafo temos que, uma playlist que 'possui' um artista assim como 'possui' uma música. Um artista, por sua vez, 'possui' uma música. Então, se existirem conjuntos de artistas que não se relacionam, teremos grafos desconectados.
 
@@ -48,13 +48,13 @@ Dessa forma obtemos uma um dígrafo. Nesse digrafo temos que, uma playlist que '
 &nbsp;
   R - Há hipótese é de que isso possa acontecer, visto que em playlist muitos específicas há artistas igualmente específicos. Portanto surge a necessidade de sanar a curiosidade:Qual/Quais artista(s) só eu gosto?
 
-**3. Existem músicas exclusivas,aquelas que estão contidas em apenas uma playlist?**
+**3. Quais grafos são conectados e quais são heterogênios considerando os artistas que o compõem?**
 
 &nbsp;
-  R - Há hipótese é de que isso possa acontecer, visto que em playlist muitos específicas há músicas igualmente específicas.Portanto surge a necessidade de sanar a curiosidade:Qual/Quais musica(s) só eu gosto?
+  R - Há hipótese é de que isso possa acontecer, visto que em playlist muitos específicos há artistas igualmente específicos.Portanto surge a necessidade de sanar a curiosidade:Qual/Quais é o artista que só eu gosto?
 
 
-**4. Qual a música mais popular, aquela presente em mais *playlists*?**
+**4. Qual o artista mais popular, aquela presente em mais *playlists*?**
 
 &nbsp;
-  R - Saber Qual é a música do momento é sempre uma informação bem vinda para o público do aplicativo e sugestões de hits.
+  R - Saber Qual é o artista do momento é sempre uma informação bem vinda para o público do aplicativo e sugestões de hits.
