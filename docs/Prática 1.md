@@ -37,17 +37,17 @@ Dessa forma obtemos uma um dígrafo. Nesse digrafo temos que, uma playlist que '
 
 ## Perguntas a serem respondidas
 
-**1. Qual ou quais os artistas mais indicados a serem adicionados a lista, ou seja, qual o nó não pertencente a *playlist* que tem o maior grau de entrada?**
+**1. Qual ou quais os artistas mais indicados a serem adicionados a uma determinada *playlist*, ou seja, qual vértice de artista que não está conectado ao vértice da *playlist* e que tem o maior grau de entrada?**
+
+&nbsp;
+  R - Exmplo: Ao escolher uma playlist de sertanejo universitário, caso um novo artista faça sucesso e não esteja na playlist selecionada ele será indicado, visto que provavelmente estára em outras playlist fortemente relacionadas a escolhida.
+  
+**2.** O grafo formado pelos artistas quem compõem uma playlist é conectado?// existem playlist/artisas solitárias(os)? ou seja sem conexao com outros?
 
 &nbsp;
   R -
   
-**2.** O grafo formado pelos artistas quem compõem uma playlist é conectado?
-
-&nbsp;
-  R -
-  
-**3.** Existe um artista que representa um vértice separador no grafo da playlist, caso ela seja conectada?
+**3.** Existe um artista que representa um vértice separador no grafo da playlist, caso ela seja conectada?//
 
 &nbsp;
   R -
@@ -62,7 +62,7 @@ Dessa forma obtemos uma um dígrafo. Nesse digrafo temos que, uma playlist que '
 &nbsp;
   R -
   
-**6. Será que o artista que está em um maior numero de playlists é o artista mais ouvido?**
+**6. Será que o artista que está em um maior numero de playlists é o artista mais ouvido?**////como evidenciar a a proximidade das playlists?
 
 &nbsp;
   R -
