@@ -1,4 +1,4 @@
-# Prática 1
+# Prática 1 
 
 #### Grupo: Natan Ribeiro, Raimundo Heitor, Alessandro Fook, Wellington Araújo, Matheus Procópio
 
@@ -32,7 +32,7 @@ O *spotify* oferece um serviço de músicas onde os usuário podem construir lis
 
 O grafo gerado pelos dados será construído considerando os artistas, playlist e música, como vértices, que estão conectados por arestas direcionadas entre si, como podemos visualizar na imagem abaixo:
 
-![alt text](https://github.com/matheusps/spotigraphs/blob/master/imgs/graph.png "Prototipagem Grafo")
+![alt text](../imgs/graph.png "Prototipagem Grafo")
 
 Dessa forma obtemos uma um dígrafo. Nesse digrafo temos que, uma playlist que 'possui' um artista assim como 'possui' uma música. Um artista, por sua vez, 'possui' uma música. Então, se existirem conjuntos de artistas que não se relacionam, teremos grafos desconectados.
 
