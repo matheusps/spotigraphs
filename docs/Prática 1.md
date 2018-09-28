@@ -21,8 +21,6 @@ class Artist {
 }
 
 ```
-Esta base de dados pode ser acessada em: http://...
-
 ## Contexto
 
 O *spotify* oferece um serviço de músicas onde os usuário podem construir listas de músicas para ouvir. Como serviço adicional, quando as músicas da lista já terminaram de ser executadas, o serviço costuma recomendar músicas com base nas relações existentes entre músicas e artistas.
