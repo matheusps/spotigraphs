@@ -38,30 +38,22 @@ Dessa forma obtemos uma um dígrafo. Nesse digrafo temos que, uma playlist que '
 **1. Qual ou quais os artistas mais indicados a serem adicionados a uma determinada *playlist*, ou seja, qual vértice de artista que não está conectado ao vértice da *playlist* e que tem o maior grau de proximidade?**
 
 &nbsp;
-  R - Por exemplo, ao escolher uma playlist de sertanejo universitário, caso um novo artista faça sucesso e não esteja na playlist selecionada ele será indicado, visto que provavelmente estára em outras playlist fortemente relacionadas a escolhida.
+  R - Ao escolher uma playlist de sertanejo universitário, caso um novo artista faça sucesso e não esteja na playlist selecionada ele será indicado, visto que provavelmente estára em outras playlist fortemente relacionada com a escolhida. Isso pode ser útil para a sugestões de tendências há playlist.
   
-**2. Existem artisas solitários,aqueles que estão contidos em apenas uma playlist?**
+**2. Existem artisas exclusivos,aqueles que estão contidos em apenas uma playlist?**
 
 &nbsp;
-  R - Há hipótese é de que isso possa acontecer, visto que em playlist muitos espécificas há artistas igualmente específicos.
-  
-**7. Qual a musica presente em mais *playlists*?**
+  R - Há hipótese é de que isso possa acontecer, visto que em playlist muitos espécificas há artistas igualmente específicos. Portanto surge a necessidade de sanar a curiosidade:Qual/Quais artista(s) só eu gosto?
+
+**3. Existem músicas exclusivas,aquelas que estão contidas em apenas uma playlist?**
 
 &nbsp;
-  R -
+  R - Há hipótese é de que isso possa acontecer, visto que em playlist muitos espécificas há músicas igualmente específicas.Portanto surge a necessidade de sanar a curiosidade:Qual/Quais musica(s) só eu gosto?
 
-**3.** Existem comunidades de playlists no grafos, ou seja, grupos muito próximos de playlists? que estão um pouco afastados dos demais?
 
-&nbsp;
-  R - A ideia é de que sim, visto que muitas playlists compartilham artistas.
-  
-**4.** O grafo de duas playlists em que um mesmo artista está presente é conectado?
+**4. Qual a musica mais popular, aquela presente em mais *playlists*?**
 
 &nbsp;
-  R -
-  
-**6. Será que o artista que está em um maior numero de playlists é o artista mais ouvido?**////como evidenciar a a proximidade das playlists?
+  R - Saber Qual é a música do momento é sempre uma informaão bem vinda para o publico do aplicativo e sugestões de hits.
 
-&nbsp;
-  R -
-  
+
