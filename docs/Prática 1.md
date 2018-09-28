@@ -38,9 +38,9 @@ Dessa forma obtemos uma um dígrafo. Nesse digrafo temos que, uma playlist que '
 **1. Qual ou quais os artistas mais indicados a serem adicionados a uma determinada *playlist*, ou seja, qual vértice de artista que não está conectado ao vértice da *playlist* e que tem o maior grau de proximidade?**
 
 &nbsp;
-  R - Exmplo: Ao escolher uma playlist de sertanejo universitário, caso um novo artista faça sucesso e não esteja na playlist selecionada ele será indicado, visto que provavelmente estára em outras playlist fortemente relacionadas a escolhida.
+  R - Por exemplo, ao escolher uma playlist de sertanejo universitário, caso um novo artista faça sucesso e não esteja na playlist selecionada ele será indicado, visto que provavelmente estára em outras playlist fortemente relacionadas a escolhida.
   
-**2.** existem artisas solitários,aqueles que estão contidos em apenas uma playlist?
+**2. existem artisas solitários,aqueles que estão contidos em apenas uma playlist?**
 
 &nbsp;
   R - Há hipótese é de que isso possa acontecer, visto que em playlist muitos espécificas há artistas igualmente específicos.
@@ -51,11 +51,6 @@ Dessa forma obtemos uma um dígrafo. Nesse digrafo temos que, uma playlist que '
   R - A ideia é de que sim, visto que muitas playlists compartilham artistas.
   
 **4.** O grafo de duas playlists em que um mesmo artista está presente é conectado?
-
-&nbsp;
-  R -
-  
-**5. Qual artista seria mais ecletico, ou seja, estaria em o maior numero de playlists com estilos diferenciados?**
 
 &nbsp;
   R -
