@@ -45,6 +45,11 @@ Dessa forma obtemos uma um dígrafo. Nesse digrafo temos que, uma playlist que '
 &nbsp;
   R - Há hipótese é de que isso possa acontecer, visto que em playlist muitos espécificas há artistas igualmente específicos.
   
+**7. Qual a musica presente em mais *playlists*?**
+
+&nbsp;
+  R -
+
 **3.** Existem comunidades de playlists no grafos, ou seja, grupos muito próximos de playlists? que estão um pouco afastados dos demais?
 
 &nbsp;
@@ -60,7 +65,3 @@ Dessa forma obtemos uma um dígrafo. Nesse digrafo temos que, uma playlist que '
 &nbsp;
   R -
   
-**7. Será que a musica que está em um maior numero de playlists é a musica mais ouvida?**
-
-&nbsp;
-  R -
