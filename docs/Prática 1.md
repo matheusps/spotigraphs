@@ -5,7 +5,9 @@
 
 ## Base de Dados
 
-A base de dados selecionada para o estudo corresponde a um subconjunto de listas de músicas (*playlists*) do *spotify*, que contém informações sobre as músicas nela contidas e os artistas relacionados com cada música seguindo o modelo abaixo:
+Para o estudo foram selecionadas duas bases de dados:
+
+- A primeira base de dados selecionada para o estudo corresponde a um subconjunto de listas de músicas (*playlists*) do *vagalume*, que contém informações sobre as músicas nela contidas e os artistas relacionados com cada música seguindo o modelo abaixo:
 
 ```bash
 class Playlist {
@@ -17,44 +19,34 @@ class Music {
     name: string,
     artists: Artist[]
 }
+```
 
+- A segunda base de dados, contém os artistas com sua lista de artistas relacionados, seguindo o modelo abaixo:
+
+```bash
 class Artist {
     nome: string,
-    relateds: Artist[]
+    relacionados: Artist[]
 }
-
 ```
 ## Contexto
 
-O *spotify* oferece um serviço de músicas onde os usuário podem construir listas de músicas para ouvir. Como serviço adicional, quando as músicas da lista já terminaram de ser executadas, o serviço costuma recomendar músicas com base nas relações existentes entre músicas e artistas.
+O *vagalume* tem um serviço de execução de playlist, então como serviço adicional, quando as músicas da lista já terminaram de ser executadas, o serviço costuma recomendar músicas com base nas relações existentes entre músicas e artistas, ou entre playlists.
 
 ## Grafo
 
-O grafo gerado pelos dados será construído considerando os artistas, playlist e música, como vértices, que estão conectados por arestas direcionadas entre si, como podemos visualizar na imagem abaixo:
+O grafo gerado pelos dados será construído considerando os artistas, como vértices, que estão conectados por arestas direcionadas entre si, com peso contabilizando o número de playlists em que ambos fazem parte, como podemos visualizar na imagem abaixo:
 
-![alt text](../imgs/graph.jpg "Prototipagem Grafo")
+![](../imgs/graph.jpg)
 
 Dessa forma obtemos uma um dígrafo. Nesse digrafo temos que, uma playlist que 'possui' um artista assim como 'possui' uma música. Um artista, por sua vez, 'possui' uma música. Então, se existirem conjuntos de artistas que não se relacionam, teremos grafos desconectados.
 
 ## Perguntas a serem respondidas
 
-**1. Qual ou quais os artistas mais indicados a serem adicionados a uma determinada *playlist*, ou seja, qual vértice de artista que não está conectado ao vértice da *playlist* e que tem o maior grau de proximidade?**
-
-&nbsp;
-  R - Ao escolher uma playlist de sertanejo universitário, caso um novo artista faça sucesso e não esteja na playlist selecionada ele será indicado, visto que provavelmente estará em outras playlist fortemente relacionada com a escolhida. Isso pode ser útil para a sugestões de tendências há playlist.
+**1. Qual ou quais os artistas mais indicados a ser executado após o termino da *playlist*, ou seja, qual vértice de artista que não está presente na *playlist*, mas encontra-se conectado ao vértice de um, ou mais, artista(s) já relacionado(s) *playlist* e que tem o maior grau de proximidade(*playlists* em comum)?**
  
-**2. Existem artistas exclusivos,aqueles que estão contidos em apenas uma playlist?**
+**2. Existem artistas exclusivos, aqueles que estão contidos em apenas uma *playlist*? Dados dois artistas, que não estão na lista de relacionados entre si, é possível caminhar de um até o outro usando o grafo?**
 
-&nbsp;
-  R - Há hipótese é de que isso possa acontecer, visto que em playlist muitos específicas há artistas igualmente específicos. Portanto surge a necessidade de sanar a curiosidade:Qual/Quais artista(s) só eu gosto?
+**3. Quais *playlists* formam grafos conectados e quais são heterogênios considerando os artistas que as compõem?**
 
-**3. Quais grafos são conectados e quais são heterogênios considerando os artistas que o compõem?**
-
-&nbsp;
-  R - Há hipótese é de que isso possa acontecer, visto que em playlist muitos específicos há artistas igualmente específicos.Portanto surge a necessidade de sanar a curiosidade:Qual/Quais é o artista que só eu gosto?
-
-
-**4. Qual o artista mais popular, aquela presente em mais *playlists*?**
-
-&nbsp;
-  R - Saber Qual é o artista do momento é sempre uma informação bem vinda para o público do aplicativo e sugestões de hits.
+**4. Qual(ais) o(s) artista(s) mais popular(es), aquele presente em mais *playlists*?**
