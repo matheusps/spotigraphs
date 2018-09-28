@@ -40,7 +40,7 @@ Dessa forma obtemos uma um dígrafo. Nesse digrafo temos que, uma playlist que '
 &nbsp;
   R - Por exemplo, ao escolher uma playlist de sertanejo universitário, caso um novo artista faça sucesso e não esteja na playlist selecionada ele será indicado, visto que provavelmente estára em outras playlist fortemente relacionadas a escolhida.
   
-**2. existem artisas solitários,aqueles que estão contidos em apenas uma playlist?**
+**2. Existem artisas solitários,aqueles que estão contidos em apenas uma playlist?**
 
 &nbsp;
   R - Há hipótese é de que isso possa acontecer, visto que em playlist muitos espécificas há artistas igualmente específicos.
