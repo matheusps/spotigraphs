@@ -38,7 +38,6 @@ setwd("~/Documents/workspace/spotigraphs/docs")
 library(magrittr)
 library('rvest')
 ```
-
 * From a large frame filter and select a few number of artists.
 ```{r}
 #Manipulate dataframe to remove unnecessary information
@@ -82,3 +81,12 @@ Como resultado desses sucessivos filtros, obtivemos [essa base de dados](../docs
 
 ### Grafo
 
+Para visualização e manipulação gráfica dos nossos dados utilizamos a ferramenta *Gephi*, um *software* de análise e visualização de redes de código aberto escrito em Java. A partir dessa ferramenta, podemos obter o seguinte grafo para todos os dados em estudo:
+
+![](../img/……….)
+
+Este grafo contém … nós e … arestas, de modo que os artistas são os nós que estão conectados por arestas direcionadas entre si, com peso contabilizando o número de *playlists* em que ambos fazem parte.
+
+Assim, podemos definir diferentes *layouts*, a partir do grafo acima, para respondermos questionamentos que surgirem, como podemos ver abaixo:
+
+![](../img/……….)
