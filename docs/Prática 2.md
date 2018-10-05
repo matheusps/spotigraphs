@@ -1,6 +1,4 @@
-# Prática 2
-
-#### Grupo: Natan Ribeiro, Raimundo Heitor, Alessandro Fook, Wellington Araújo, Matheus Procópio
+## Prática 2
 
 ### O que deve ser entregue?
 • Um relatório que será incrementado nas próximas etapas. Por hora, o relatório deve ter
@@ -21,6 +19,10 @@ hipótese serão confirmadas/refutadas?
 
 ## Spotigraphs
 
+
+#### Grupo: Natan Ribeiro, Raimundo Heitor, Alessandro Fook, Wellington Araújo, Matheus Procópio
+
+
 ### Contextualização
 
 O Vagalume é um portal de música do Brasil criado em 2002, que utiliza a linguagem PHP e possui o banco de dados MySQL para inicialmente criar uma pequena base de letras de músicas. Nele, existe um serviço de recomendação de *playlists* onde, ao final da execução de uma certa *playlist*, o serviço costuma recomendar músicas com base nas relações existentes entre músicas e artistas, ou entre playlists.
@@ -29,7 +31,6 @@ Dessa forma, para o estudo proposto, utilizamos a seguinte base de dados:
 
 Corresponde a um subconjunto de listas de músicas (*playlists*) do vagalume, extraída a partir da [base de dados](https://media.githubusercontent.com/media/felipevieira/computacao-e-musica-lsd/master/sbcm-2017/Datasets/MPSD%20v1.0.csv)  que contém informações sobre as músicas nela contidas e os artistas relacionados com cada música.
 Com isso se fez necessário uma sequência de filtros que padronizasse o conjunto de dados do nosso estudo, utilizando a linguagem R, de forma que executamos os seguintes comandos:
-
 
 * Importing library
 ```{r setup, include=FALSE}
@@ -73,9 +74,11 @@ for (i in 1:dim(subset2)[1]) {
 
 write.csv(subset2, file = "filter-artists.csv", row.names = FALSE)
 ```
+Como resultado desses sucessivos filtros, obtivemos [essa base de dados](../docs/filter-artists.csv) que nos responderá os questionamentos propostos no proximo topico.
 
 ### Problemas
 
 
 
 ### Grafo
+
