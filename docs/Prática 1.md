@@ -7,7 +7,7 @@
 
 Para o estudo foram selecionadas duas bases de dados:
 
-- A primeira base de dados selecionada para o estudo corresponde a um subconjunto de listas de músicas (*playlists*) do *vagalume*, que contém informações sobre as músicas nela contidas e os artistas relacionados com cada música seguindo o modelo abaixo:
+- A primeira base de dados selecionada para o estudo corresponde a um subconjunto de listas de músicas (*playlists*) do *vagalume*, extraída a partir da [base de dados](https://media.githubusercontent.com/media/felipevieira/computacao-e-musica-lsd/master/sbcm-2017/Datasets/MPSD%20v1.0.csv)  que contém informações sobre as músicas nela contidas e os artistas relacionados com cada música seguindo o modelo abaixo:
 
 ```bash
 class Playlist {
