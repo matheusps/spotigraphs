@@ -75,7 +75,35 @@ write.csv(subset2, file = "filter-artists.csv", row.names = FALSE)
 ```
 Como resultado desses sucessivos filtros, obtivemos [essa base de dados](../docs/filter-artists.csv) que nos responderá os questionamentos propostos no proximo topico.
 
-### Problemas
+### Problemas 
+Para se realizar a análise do grafo definimos como vértices os artistas e como arestas os artistas que possui alguma relação com os mesmos, tal relação é obtida através das playlists dos artistas. Tal estrutura nos permite iterar sobre os vértices e encontrar as repostas para as perguntas a seguir. Abaixo temos as questões propostas e como pretendemos usar da dados e da teoria dos grafos para solucioná-los.
+
+**1. Qual ou quais os artistas mais indicados a ser executado após o término da *playlist*, ou seja, qual vértice que não está presente na *playlist*, mas encontra-se conectado ao vértice de um, ou mais, artista(s) já relacionado(s) a *playlist* e que tem o maior grau de proximidade(*playlists* em comum)?**
+
+Motivo: Esse é um problema recorrente em sistemas de transmissão de mídias e que tem como principal propósito manter o usuário acessando o sistema sem haver uma interrupção da execução de sua playlist. Porém para se evitar um contraste de estilos entre o que está em reprodução e o que o sistema sugere se torna necessário um algoritmo que busque sempre os mais apropriados para serem adicionados/sugeridos a playlist. Tal algoritmo é o que desejamos encontrar para resolver este problema.
+
+Metodologia: Neste problema temos como objetivo encontrar um vértice(que representa um artista) que não esteja presente no conjunto de vértice(que representa a playlist) e que tenha o maior grau de proximidade com a playlist. O grau de proximidade é definido como o número de vezes que um artista,não contido no conjunto da playlist, aparece no conjunto de relacionados dos artistas contidos na playList, Ou seja para cada artista da playlist verifica os seus artistas relacionados e aqueles que não estiverem na playlist são selecionados como possíveis candidatos a indicações, Depois que todos os artistas forem verificados poderá observar aqueles que mais se repetiram dentre os candidatos indicados e com isso realizar uma sugestão mais apropriada.
+
+ 
+**2. Existem artistas exclusivos, aqueles que estão contidos em apenas uma *playlist*? Dados dois artistas, que não estão na lista de relacionados entre si, é possível caminhar de um até o outro usando o grafo?**
+
+Motivo: A ideia desse problema é encontrar quais os artistas mais isolados, ou seja, aqueles que tem menos proximidade com os outros. A descoberta de tais artistas se torna útil para o cadastro de novos artistas semelhantes ou relacionados no sistema e com isso impedir artistas isolados ao mesmo tempo que expande a oferta de artistas para os clientes, se tornando bastante útil por exemplo em sucessos momentâneos regionais onde novos artistas surgem e com isso o sistema pode cadastrar cada vez mais relacionados de acordo com a tendência.
+
+Metodologia: Neste problema será feita uma varredura entres os artistas e verificando se há um caminho entre eles, os artistas que não possuírem caminhos entre eles significa que não estão relacionados de nenhuma maneira, logo estão em grafos desconexos e com isso isolados.
+
+
+**3. Quais *playlists* formam grafos conectados e quais são heterogêneos considerando os artistas que as compõem?**
+
+Motivo: Esse problema tem como Objetivo identificar playlists mais coesas, ou seja, as playlists cujo seus artistas tem relações com outros artistas da mesma playlists, identificando assim um conjunto que pode representar um determinado gênero, uma região ou um período temporal de artistas.
+
+Metodologia: Ao percorrer o grafo é possível determinar se há um caminho entre dois artistas e ao fazer isso pode encontrar macrorregiões de artistas conectados entre si ou heterogêneas. 
+
+**4. Qual(ais) o(s) artista(s) mais popular(es), aquele presente em mais *playlists*?**
+
+Motivo: Outro problema bastante comum é sistemas  de mídia é determinar quais as tendências do momento, ou seja, quais os artistas que estão fazendo mais sucesso.
+
+Metodologia: Essa problema pode ser resolvido fazendo uma intersecção entre as playlist e obtendo os artistas mais comum a todas.
+
 
 
 
