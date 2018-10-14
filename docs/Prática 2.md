@@ -50,12 +50,11 @@ dataframe4 <- dataframe3[grep("^[A-Za-z]+$", dataframe3$artist_name),]
 #Create a dataframe to use as filter
 frame_filter1 <- as.data.frame(table(unlist(dataframe4$playlist_name)))
 frame_filter2 <- frame_filter1[!grepl("Playlist|,|\"|[|]", frame_filter1$Var1),]
-frame_filter3 <- frame_filter2[grep("^[A-Za-z]+$", frame_filter2$Var1),]
+frame_filter3 <- frame_filter2[grep("Top", frame_filter2$Var1),]
 frame_filter4 <- subset(frame_filter3, subset = (Freq > 10 & Freq < 20))
-frame_filter5 <- frame_filter4[sample(nrow(frame_filter4), 30),]
 
 #Filter dataframe and save to a csv file
-subset1 <- subset(dataframe4, playlist_name %in% frame_filter5$Var1)
+subset1 <- subset(dataframe4, playlist_name %in% frame_filter4$Var1)
 subset2 <- aggregate(subset1$playlist_name,subset1['artist_name'],paste,collapse=',')
 colnames(subset2) <- c("artist", "playlists")
 
