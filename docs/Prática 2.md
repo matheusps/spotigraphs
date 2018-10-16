@@ -6,12 +6,11 @@
 
 ### Contextualização
 
-O Vagalume é um portal de música do Brasil criado em 2002, que utiliza a linguagem PHP e possui o banco de dados MySQL para inicialmente criar uma pequena base de letras de músicas. Nele, existe um serviço de recomendação de *playlists* onde, ao final da execução de uma certa *playlist*, o serviço costuma recomendar músicas com base nas relações existentes entre músicas e artistas, ou entre playlists.
+O Vagalume é um portal de música do Brasil criado em 2002, que utiliza a linguagem PHP e possui o banco de dados MySQL para inicialmente criar uma pequena base de letras de músicas. 
 
-Dessa forma, para o estudo proposto, utilizamos a seguinte base de dados:
+Nele, existe um serviço de streaming de músicas que tem a opção de execução de *playlists* onde, ao final da execução de uma certa *playlist*, o serviço costuma recomendar músicas com base nas relações existentes entre músicas e artistas, ou entre playlists.
 
-Corresponde a um subconjunto de listas de músicas (*playlists*) do vagalume, extraída a partir da [base de dados](https://media.githubusercontent.com/media/felipevieira/computacao-e-musica-lsd/master/sbcm-2017/Datasets/MPSD%20v1.0.csv)  que contém informações sobre as músicas nela contidas e os artistas relacionados com cada música.
-Com isso se fez necessário uma sequência de filtros que padronizasse o conjunto de dados do nosso estudo, utilizando a linguagem R, de forma que executamos os seguintes comandos:
+Dessa forma, para o estudo proposto, utilizamos como base de dados um subconjunto de listas de músicas (*playlists*) do vagalume a partir da aplicação de um conjunto de filtros na [base de dados](https://media.githubusercontent.com/media/felipevieira/computacao-e-musica-lsd/master/sbcm-2017/Datasets/MPSD%20v1.0.csv) utilizando a linguagem R, conforme código a seguir:
 
 * Importing library
 ```{r setup, include=FALSE}
@@ -36,8 +35,10 @@ frame_filter4 <- subset(frame_filter3, subset = (Freq > 10 & Freq < 20))
 
 #Filter dataframe and save to a csv file
 subset1 <- subset(dataframe4, playlist_name %in% frame_filter4$Var1)
+write.csv(subset1, file = "artist-playlist.csv", row.names = FALSE)
 subset2 <- aggregate(subset1$playlist_name,subset1['artist_name'],paste,collapse=',')
 colnames(subset2) <- c("artist", "playlists")
+
 
 #Specifying the url for desired website to be scrapped
 url_base <- 'https://www.vagalume.com.br/'
@@ -46,16 +47,41 @@ url_rest <- '/relacionados/'
 #Scraping related artists 
 subset2["related"] <- NA
 
+subset3 <- data.frame(cbind('a', 'a'))
+colnames(subset3) <- c('artist', 'related')
+subset3[,1] <- NA
+subset3[,2] <- NA
+subset3 <- subset3[complete.cases(subset3),]
+
 for (i in 1:dim(subset2)[1]) {
+
   relacionados <- tryCatch({html_nodes(read_html(paste(url_base,gsub(" ", "-",tolower(as.character(subset2$artist[i]))),url_rest, sep = "")),'p.h22.w1.itemTitle') %>% html_text},error=function(cond){message(cond)})
+
   subset2$related[i] <- paste(unlist(list(relacionados)), collapse = ",")
+
+  related = c()
+
+  if(paste(unlist(list(relacionados)), collapse = ",") == "") {
+    related = c(NA)
+  } else {
+    related <- list(relacionados)
+  }
+
+    subset4 <- data.frame(matrix(subset2$artist[i]), related)
+    colnames(subset4) <- c('artist', 'related')
+
+    subset3 <- merge(subset3, subset4, by = intersect(names(subset3), names(subset4)), all.x = TRUE, all.y = TRUE)
+
 }
 
+write.csv(subset3, file = "filter-artist-related.csv", row.names = FALSE)
 write.csv(subset2, file = "filter-artists.csv", row.names = FALSE)
 ```
+
 Como resultado desses sucessivos filtros, obtivemos [essa base de dados](../docs/filter-artists.csv) que nos responderá os questionamentos propostos no próximo tópico.
 
 ### Problemas
+
 Para se realizar a análise do grafo definimos como vértices os artistas e como arestas os artistas que possui alguma relação com os mesmos, tal relação é obtida através das playlists dos artistas. Tal estrutura nos permite iterar sobre os vértices e encontrar as repostas para as perguntas a seguir. Abaixo temos as questões propostas e como pretendemos usar da dados e da teoria dos grafos para solucioná-los.
 
 **1. Qual ou quais os artistas mais indicados a ser executado após o término da *playlist*, ou seja, qual vértice que não está presente na *playlist*, mas encontra-se conectado ao vértice de um, ou mais, artista(s) já relacionado(s) a *playlist* e que tem o maior grau de proximidade(*playlists* em comum)?**
