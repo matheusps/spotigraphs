@@ -1,22 +1,3 @@
-## Prática 2
-
-### O que deve ser entregue?
-• Um relatório que será incrementado nas próximas etapas. Por hora, o relatório deve ter
-a seguinte estrutura:
-* 1. Título
-* 2. Contextualização
-Aqui o grupo deve discutir a base de dados escolhida, em qual contexto ela está
-inserida, etc.
-* 3. Problemas
-Discutir os problemas serão investigados usando a base de dados escolhida e
-elementos da Teoria dos Grafos. Por que esse problema é interessante? Quais
-hipótese serão confirmadas/refutadas?
-* 4. Grafo
-    * a. Apresentação da representação do grafo (imagem).
-    * b. Layout
-      Qual layout de apresentação foi escolhido? Justifique a escolha.
----------------------------------------------------------------------------------------------------
-
 ## Spotigraphs
 
 
@@ -72,9 +53,9 @@ for (i in 1:dim(subset2)[1]) {
 
 write.csv(subset2, file = "filter-artists.csv", row.names = FALSE)
 ```
-Como resultado desses sucessivos filtros, obtivemos [essa base de dados](../docs/filter-artists.csv) que nos responderá os questionamentos propostos no proximo topico.
+Como resultado desses sucessivos filtros, obtivemos [essa base de dados](../docs/filter-artists.csv) que nos responderá os questionamentos propostos no próximo tópico.
 
-### Problemas 
+### Problemas
 Para se realizar a análise do grafo definimos como vértices os artistas e como arestas os artistas que possui alguma relação com os mesmos, tal relação é obtida através das playlists dos artistas. Tal estrutura nos permite iterar sobre os vértices e encontrar as repostas para as perguntas a seguir. Abaixo temos as questões propostas e como pretendemos usar da dados e da teoria dos grafos para solucioná-los.
 
 **1. Qual ou quais os artistas mais indicados a ser executado após o término da *playlist*, ou seja, qual vértice que não está presente na *playlist*, mas encontra-se conectado ao vértice de um, ou mais, artista(s) já relacionado(s) a *playlist* e que tem o maior grau de proximidade(*playlists* em comum)?**
@@ -95,7 +76,7 @@ Metodologia: Neste problema será feita uma varredura entres os artistas e verif
 
 Motivo: Esse problema tem como Objetivo identificar playlists mais coesas, ou seja, as playlists cujo seus artistas tem relações com outros artistas da mesma playlists, identificando assim um conjunto que pode representar um determinado gênero, uma região ou um período temporal de artistas.
 
-Metodologia: Ao percorrer o grafo é possível determinar se há um caminho entre dois artistas e ao fazer isso pode encontrar macrorregiões de artistas conectados entre si ou heterogêneas. 
+Metodologia: Ao percorrer o grafo é possível determinar se há um caminho entre dois artistas e ao fazer isso pode encontrar macrorregiões de artistas conectados entre si ou heterogêneas.
 
 **4. Qual(ais) o(s) artista(s) mais popular(es), aquele presente em mais *playlists*?**
 
@@ -108,12 +89,21 @@ Metodologia: Essa problema pode ser resolvido fazendo uma intersecção entre as
 
 ### Grafo
 
-Para visualização e manipulação gráfica dos nossos dados utilizamos a ferramenta *Gephi*, um *software* de análise e visualização de redes de código aberto escrito em Java. A partir dessa ferramenta, podemos obter o seguinte grafo para todos os dados em estudo:
+Para visualização e manipulação gráfica dos nossos dados utilizamos a ferramenta *Gephi*, um *software* de análise e visualização de redes de código aberto escrito em Java.
+Com os dados coletados (referenciado anteriormente), estruturamos tais dados de modo que uma nova tabela artist-playlist-related.csv foi criada, contendo um certo artista e sua respectiva *playlist*. Assim geramos o seguinte grafo:
 
 ![](../img/……….)
 
-Este grafo contém … nós e … arestas, de modo que os artistas são os nós que estão conectados por arestas direcionadas entre si, com peso contabilizando o número de *playlists* em que ambos fazem parte.
+Este grafo contém 333 nós e 418 arestas. Podemos perceber, também, que os nós maiores e escuros (maiores graus de entrada) são as *playlists*, e os nós menores, são os artistas. Eles estão conectados entre si (artistas-artistas e artista-*playlist*). Com isso podemos perceber que alguns artistas estão isolados em torno de uma *playlist*.
 
-Assim, podemos definir diferentes *layouts*, a partir do grafo acima, para respondermos questionamentos que surgirem, como podemos ver abaixo:
+No grafo a seguir, geramos uma outra tabela (artist-playlist-nodes.csv) contendo os nós, e utilizamos a tabela do grafo anterior
+(artist-all-related.csv) para obtermos as arestas. Assim, temos o grafo abaixo:
 
 ![](../img/……….)
+
+Neste segundo grafo, obtemos 1843 nós e 7045 arestas. Neste caso, temos os nós de cor azul, como *playlists* ou artistas não relacionados a alguma *playlist*. Assim como no grafo anterior, os nó maiores, possuem grau de entrada maior.
+
+Temos a seguir, um exemplo de que tipo de informação podemos obter:
+![](../img/……….)
+
+Fica claro que este nó **Sertanejo Hits** é o maior, e como definimos anteriormente, o diâmetro de uma nó é proporcional ao grau do mesmo.
