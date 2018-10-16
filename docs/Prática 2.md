@@ -85,25 +85,24 @@ Motivo: Outro problema bastante comum é sistemas  de mídia é determinar quais
 Metodologia: Essa problema pode ser resolvido fazendo uma intersecção entre as playlist e obtendo os artistas mais comum a todas.
 
 
-
-
 ### Grafo
 
 Para visualização e manipulação gráfica dos nossos dados utilizamos a ferramenta *Gephi*, um *software* de análise e visualização de redes de código aberto escrito em Java.
-Com os dados coletados (referenciado anteriormente), estruturamos tais dados de modo que uma nova tabela artist-playlist-related.csv foi criada, contendo um certo artista e sua respectiva *playlist*. Assim geramos o seguinte grafo:
+Com os dados coletados (referenciado anteriormente), estruturamos tais dados de modo que uma nova tabela [artist-playlist-related.csv](../docs/graph/artist-playlist-related.csv) foi criada, contendo um certo artista e sua respectiva *playlist*. Assim geramos o seguinte grafo:
 
-![](../img/……….)
+![](graph/graph_1.PNG)
 
 Este grafo contém 333 nós e 418 arestas. Podemos perceber, também, que os nós maiores e escuros (maiores graus de entrada) são as *playlists*, e os nós menores, são os artistas. Eles estão conectados entre si (artistas-artistas e artista-*playlist*). Com isso podemos perceber que alguns artistas estão isolados em torno de uma *playlist*.
 
-No grafo a seguir, geramos uma outra tabela (artist-playlist-nodes.csv) contendo os nós, e utilizamos a tabela do grafo anterior
-(artist-all-related.csv) para obtermos as arestas. Assim, temos o grafo abaixo:
+No grafo a seguir, geramos uma outra tabela ([artist-playlist-nodes.csv](../docs/graph/artist-playlist-nodes.csv)) contendo os nós, e utilizamos a tabela do grafo anterior
+([artist-all-related.csv](../docs/graph/artist-all-related.csv)) para obtermos as arestas. Assim, temos o grafo abaixo:
 
-![](../img/……….)
+![](graph/graph_2.PNG)
 
 Neste segundo grafo, obtemos 1843 nós e 7045 arestas. Neste caso, temos os nós de cor azul, como *playlists* ou artistas não relacionados a alguma *playlist*. Assim como no grafo anterior, os nó maiores, possuem grau de entrada maior.
 
 Temos a seguir, um exemplo de que tipo de informação podemos obter:
-![](../img/……….)
+
+![](graph/template.png)
 
 Fica claro que este nó **Sertanejo Hits** é o maior, e como definimos anteriormente, o diâmetro de uma nó é proporcional ao grau do mesmo.
