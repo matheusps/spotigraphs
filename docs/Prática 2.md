@@ -130,7 +130,7 @@ No grafo a seguir, geramos uma outra tabela ([artist-playlist-nodes.csv](../docs
 
 ![](graph/Graph_2.png)
 
-Neste segundo grafo, obtemos 1757 nós e 5817 arestas. Neste caso, temos os nós de cor azul, como artistas não relacionados a alguma *playlist*. Assim como no grafo anterior, os nós maiores, possuem grau de entrada maior.
+Neste segundo grafo, obtemos 1757 nós e 5817 arestas. Neste caso, temos os nós de cor preta, como artistas não relacionados a alguma *playlist*. Assim como no grafo anterior, os nós maiores, possuem grau de entrada maior.
 
 Temos a seguir, um exemplo de que tipo de informação podemos obter:
 
