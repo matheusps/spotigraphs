@@ -128,7 +128,7 @@ Assim, pela imagem acima podemos perceber que os dois questionamentos irão enco
 No grafo a seguir, geramos uma outra tabela ([artist-playlist-nodes.csv](../docs/graph/artist-playlist-nodes.csv)) contendo os nós, e utilizamos a tabela do grafo anterior
 ([artist-all-related.csv](../docs/graph/artist-all-related.csv)) para obtermos as arestas. Assim, temos o grafo abaixo:
 
-![](graph/graph_2.PNG)
+![](graph/graph_2.png)
 
 Neste segundo grafo, obtemos 1843 nós e 7045 arestas. Neste caso, temos os nós de cor azul, como *playlists* ou artistas não relacionados a alguma *playlist*. Assim como no grafo anterior, os nó maiores, possuem grau de entrada maior.
 
