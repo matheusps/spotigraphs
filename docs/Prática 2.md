@@ -134,6 +134,6 @@ Neste segundo grafo, obtemos 1757 nós e 5817 arestas. Neste caso, temos os nós
 
 Temos a seguir, um exemplo de que tipo de informação podemos obter:
 
-![](graph/template.png)
+![](graph/template1.png)
 
 Fica claro que este nó **The Beatles** é o maior, e como definimos anteriormente, o diâmetro de um nó é proporcional ao grau do mesmo.
