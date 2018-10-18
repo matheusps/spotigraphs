@@ -130,10 +130,10 @@ No grafo a seguir, geramos uma outra tabela ([artist-playlist-nodes.csv](../docs
 
 ![](graph/graph_2.png)
 
-Neste segundo grafo, obtemos 1843 nós e 7045 arestas. Neste caso, temos os nós de cor azul, como *playlists* ou artistas não relacionados a alguma *playlist*. Assim como no grafo anterior, os nó maiores, possuem grau de entrada maior.
+Neste segundo grafo, obtemos 1757 nós e 5817 arestas. Neste caso, temos os nós de cor azul, como artistas não relacionados a alguma *playlist*. Assim como no grafo anterior, os nós maiores, possuem grau de entrada maior.
 
 Temos a seguir, um exemplo de que tipo de informação podemos obter:
 
 ![](graph/template.png)
 
-Fica claro que este nó **Sertanejo Hits** é o maior, e como definimos anteriormente, o diâmetro de uma nó é proporcional ao grau do mesmo.
+Fica claro que este nó **The Beatles** é o maior, e como definimos anteriormente, o diâmetro de um nó é proporcional ao grau do mesmo.
