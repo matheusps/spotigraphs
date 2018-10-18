@@ -12,13 +12,13 @@ Nele, existe um serviço de streaming de músicas que tem a opção de execuçã
 
 Dessa forma, para o estudo proposto, utilizamos como base de dados um subconjunto de listas de músicas (*playlists*) do vagalume a partir da aplicação de um conjunto de filtros na [base de dados](https://media.githubusercontent.com/media/felipevieira/computacao-e-musica-lsd/master/sbcm-2017/Datasets/MPSD%20v1.0.csv) utilizando a linguagem R, conforme código a seguir:
 
-* Importing library
+* Importando a biblioteca
 ```{r setup, include=FALSE}
 setwd("~/Documents/workspace/spotigraphs/docs")
 library(magrittr)
 library('rvest')
 ```
-* From a large frame filter and select a few number of artists.
+* De uma grande estrutura, filtrar e selecionar alguns artistas.
 ```{r}
 #Manipulate dataframe to remove unnecessary information
 dataframe <- read.csv("spotigraph-database.csv") 
