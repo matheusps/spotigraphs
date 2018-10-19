@@ -106,11 +106,11 @@ Tal estrutura nos permite iterar sobre os vértices e encontrar as repostas para
 
 - Metodologia: Ao percorrer o grafo é possível agrupar os artistas por seus relacionamentos entre si e com as playlists, verificando assim se existe agrupamento ou concentração de playlists em torno de um determinado grupo de artistas que irão indicar a existência de um relação forte, seja por gênero, região ou período, e por outro lado será possível identificar as *playlists* que serão folhas ou estarão isoladas, demonstrando que não pertencem a nenhum dos grupos da amostra.
 
-**4. Qual(ais) o(s) artista(s) mais popular(es), aquele presente em mais *playlists*?**
+**4. Qual(ais) o(s) artista(s) mais popular(es), aquele presente em mais *playlists* e aquele mais presente na lista de relacionados?**
 
 - Motivo: Outro problema bastante comum em sistemas de mídia é determinar quais as tendências do momento, ou seja, quais os artistas que estão fazendo mais sucesso.
 
-- Metodologia: Essa problema pode ser resolvido fazendo uma intersecção entre as *playlist* e obtendo os artistas mais comuns a todas, ou aqueles que tem o maior grau.
+- Metodologia: Essa problema pode ser resolvido fazendo uma intersecção entre as *playlist* e obtendo os artistas mais comuns a todas, ou aqueles que tem o maior grau de entrada.
 
 
 ## Grafo
@@ -130,10 +130,10 @@ No grafo a seguir, geramos uma outra tabela ([artist-playlist-nodes.csv](../docs
 
 ![](graph/Graph_2.png)
 
-Neste segundo grafo, obtemos 1757 nós e 5817 arestas. Neste caso, temos os nós de cor preta, como artistas não relacionados a alguma *playlist*. Assim como no grafo anterior, os nós maiores, possuem grau de entrada maior.
+Neste segundo grafo, obtemos 1757 nós e 5817 arestas. Neste caso, temos os nós de cor preta, como artistas não relacionados a alguma *playlist*. Assim como no grafo anterior, os nós maiores, possuem grau de entrada maior. A partir da imagem podemos buscar soluções para as **questões 1 e 4**, onde podemos avaliar os relacionamentos entre os artistas.
 
 Temos a seguir, um exemplo de que tipo de informação podemos obter:
 
 ![](graph/Template.png)
 
-Fica claro que este nó **The Beatles** é o maior, e como definimos anteriormente, o diâmetro de um nó é proporcional ao grau do mesmo.
+Fica claro que este nó **The Beatles** é o maior, e como definimos anteriormente, o diâmetro de um nó é proporcional ao grau do mesmo, o que já indica o artista como sendo um dos mais populares.
