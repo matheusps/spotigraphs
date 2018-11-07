@@ -4,14 +4,8 @@ import org.jgrapht.Graph;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleGraph;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Hello world!
@@ -24,8 +18,14 @@ public class App
 
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
-        Graph<String, DefaultEdge> stringGraph = createStringGraph();
+
+        Map<String, Artist> artistMap = new HashMap<>();
+        getArtists(artistMap);
+
+        Map<String, Playlist> playlistMap = new HashMap<>();
+        getPlaylists(artistMap, playlistMap);
+
+        Graph<String, DefaultEdge> stringGraph = createStringGraph(artistMap);
 
         // note undirected edges are printed as: {<v1>,<v2>}
         System.out.println("-- toString output");
@@ -34,35 +34,55 @@ public class App
         //@example:toString:end
         System.out.println();
 
-        String artistFile = "../../Documents/workspace/spotigraphs/docs/filter-artists.csv";
-        Map<String, Artist> artistMap = new HashMap<>();
-        getArtists(artistFile, artistMap);
+    }
 
-        Map<String, Playlist> playlistMap = new HashMap<>();
+    private static void getPlaylists(Map<String, Artist> artistMap, Map<String, Playlist> playlistMap) {
 
-        String csvfile = "../../Documents/workspace/spotigraphs/docs/artist-playlist.csv";
+        String csvfile = "artist-playlist.csv";
 
         try {
 
             Scanner scanner = new Scanner(new File(csvfile));
-            String[] line = scanner.nextLine().split(DEFAULT_SEPARATOR);
-            System.out.println(line[0] + " " + line[1]);
+            scanner.nextLine();
+            String playlistName = "";
 
+            while(scanner.hasNext()) {
+
+                List<Artist> artistList = new ArrayList<>();
+
+                String[] line = scanner.nextLine().split(DEFAULT_SEPARATOR);
+
+                for (int i = 0; i < line.length; i++) {
+                    line[i] = line[i].replaceAll("\"", "");
+                }
+
+                if (playlistName.equals(line[1])) {
+
+                    Playlist playlist = playlistMap.get(playlistName);
+                    playlist.getArtists().add(artistMap.get(line[0]));
+
+                } else {
+                    artistList.add(artistMap.get(line[0]));
+                    Playlist playlist = new Playlist(line[1], artistList);
+                    playlistMap.put(line[1], playlist);
+                    playlistName = line[1];
+                }
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
-
     }
 
-    private static void getArtists(String csvfile, Map<String, Artist> artistMap) {
-        try {
+    private static void getArtists(Map<String, Artist> artistMap) {
 
+        String csvfile = "filter-artists.csv";
+
+        try {
             Scanner scanner = new Scanner(new File(csvfile));
-            String[] line = scanner.nextLine().split(DEFAULT_SEPARATOR);
+            scanner.nextLine();
 
             while(scanner.hasNext()) {
-                line = scanner.nextLine().split("\",\"");
+                String [] line = scanner.nextLine().split("\",\"");
 
                 for (int i = 0; i < line.length; i++) {
                     line[i] = line[i].replaceAll("\"", "");
@@ -78,33 +98,27 @@ public class App
         }
     }
 
-
     /**
      * Create a toy graph based on String objects.
      *
      * @return a graph based on String objects.
      */
-    private static Graph<String, DefaultEdge> createStringGraph()
-    {
-        Graph<String, DefaultEdge> g = new SimpleGraph<>(DefaultEdge.class);
+    private static Graph<String, DefaultEdge> createStringGraph(Map<String, Artist> artistMap) {
 
-        String v1 = "v1";
-        String v2 = "v2";
-        String v3 = "v3";
-        String v4 = "v4";
+        Graph<String, DefaultEdge> graph = new SimpleGraph<>(DefaultEdge.class);
 
-        // add the vertices
-        g.addVertex(v1);
-        g.addVertex(v2);
-        g.addVertex(v3);
-        g.addVertex(v4);
+        for (Artist artist : artistMap.values()) {
 
-        // add edges to create a circuit
-        g.addEdge(v1, v2);
-        g.addEdge(v2, v3);
-        g.addEdge(v3, v4);
-        g.addEdge(v4, v1);
+            graph.addVertex(artist.getName());
 
-        return g;
+            for (String related : artist.getRelated()) {
+
+                if (!artist.getName().equals(related)) {
+                    graph.addVertex(related);
+                    graph.addEdge(artist.getName(), related);
+                }
+            }
+        }
+        return graph;
     }
 }

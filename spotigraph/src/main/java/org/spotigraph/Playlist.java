@@ -27,4 +27,12 @@ public class Playlist {
     public void setArtists(List<Artist> artists) {
         this.artists = artists;
     }
+
+    @Override
+    public String toString() {
+        return "Playlist {" + "\n" +
+                "name= " + name + '\n' +
+                "artists= " + artists + "\n" +
+                "}";
+    }
 }
