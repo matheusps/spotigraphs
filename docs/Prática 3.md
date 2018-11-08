@@ -149,4 +149,19 @@ O que deve ser entregue?
     negativos, etc). Incluir o link do repositório Github com a implementação do(s) grafo(s)
     utilizando JGraphT.
 ```
-Para representar os grafos definidos na seção anterior, utilizamos uma biblioteca *Java* gratuita para trabalhar com algoritmos da teoria dos grafos chamada *JGraphT*.
+Para representar o grafos definidos na seção anterior, foi utilizado o [repositório](https://github.com/matheusps/spotigraphs) do github que já vinha armazenando os algoritmos de coleta e filtragem de dados.
+
+Assim, foi utilizada uma biblioteca *Java* gratuita para trabalhar com algoritmos de grafos indicada pelo professor e chamada [*JGraphT*](https://jgrapht.org/).
+
+A biblioteca foi utilizada inicialmente para construir um grafo simples, o que demandou muito esforço para aprender o básico da ferramenta, uma vez que, não existem exemplos de uso da documentação.
+
+Apesar disto, após se obter alguma compreensão sobre as noções básicas da biblioteca, foi desenvolvido um pequeno projeto utilizando o *Maven* para importar a biblioteca, com o objetivo de construir um grafo simples conforme foi proposto anteriormente, o que se mostrou simples de executar.
+
+Primeiro, as informações coletadas foram armazenadas em memória através da criação de objetos que as representassem: 
+
+- [Playlist](../spotigraph/src/main/java/org/spotigraph/Playlist.java)
+- [Artista](../spotigraph/src/main/java/org/spotigraph/Artist.java)
+
+Então foram desenvolvidos dois arquivos utilitários, um para realizar a leitura dos [dados](../spotigraph/src/main/java/org/spotigraph/IOUtils.java) coletados anteriormente, e outro para executar a criação do [grafo](../spotigraph/src/main/java/org/spotigraph/GraphUtils.java).
+
+Em continuidade, foi criado um [arquivo](../spotigraph/src/main/java/org/spotigraph/App.java) que seria responsável por gerenciar todos os demais, e a partir de onde a aplicação seria iniciada.
