@@ -101,7 +101,7 @@ Tal estrutura nos permite iterar sobre os vértices e encontrar as repostas para
 - Metodologia: Neste problema será feita uma varredura entres os artistas, verificando se existem artistas exclusivos a uma única *playlist*. Por outro lado, verifica-se dados dois artistas se existe um caminho entre eles, o que possibilitaria a criação de uma nova *playlist* no sistema, com todos os nós pertencentes ao caminho.
 
 
-**3. Quais *playlists* formam grafos conectados e quais são heterogêneos (considerando os artistas que as compõem)?**
+**3. Considerando os artistas que compõem um *playlist*, e suas listas de relacionados, quais *playlists* já encontram-se relacionadas, e quais podem ser interligadas ao se adicionar um novo artista presente na lista de relacionados dos já pertencentes a *playlist*?**
 
 - Motivo: Esse problema tem como objetivo identificar quais as *playlists* mais coesas, ou seja, aquelas cujos artistas têm relações com outros membros da mesma *playlist*, identificando assim um conjunto que pode representar um determinado gênero, região ou período temporal de relacionamento dos artistas.
 
@@ -142,13 +142,6 @@ Fica claro que este nó **The Beatles** é o maior, e como definimos anteriormen
 
 ## Implementação
 
-```
-O que deve ser entregue?
-  • O relatório da etapa anterior revisado incluindo uma nova seção (5. Implementação) com
-    a descrição do trabalho de implementação realizado (dificuldades, pontos positivos e
-    negativos, etc). Incluir o link do repositório Github com a implementação do(s) grafo(s)
-    utilizando JGraphT.
-```
 Para representar o grafos definidos na seção anterior, foi utilizado o [repositório](https://github.com/matheusps/spotigraphs) do github que já vinha armazenando os algoritmos de coleta e filtragem de dados.
 
 Assim, foi utilizada uma biblioteca *Java* gratuita para trabalhar com algoritmos de grafos indicada pelo professor e chamada [*JGraphT*](https://jgrapht.org/).
