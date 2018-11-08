@@ -101,7 +101,7 @@ Tal estrutura nos permite iterar sobre os vértices e encontrar as repostas para
 - Metodologia: Neste problema será feita uma varredura entres os artistas, verificando se existem artistas exclusivos a uma única *playlist*. Por outro lado, verifica-se dados dois artistas se existe um caminho entre eles, o que possibilitaria a criação de uma nova *playlist* no sistema, com todos os nós pertencentes ao caminho.
 
 
-**3. Quais *playlists* formam grafos conectados e quais são heterogêneos considerando os artistas que as compõem?**
+**3. Quais *playlists* formam grafos conectados e quais são heterogêneos (considerando os artistas que as compõem)?**
 
 - Motivo: Esse problema tem como objetivo identificar quais as *playlists* mais coesas, ou seja, aquelas cujos artistas têm relações com outros membros da mesma *playlist*, identificando assim um conjunto que pode representar um determinado gênero, região ou período temporal de relacionamento dos artistas.
 
