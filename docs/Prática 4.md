@@ -142,13 +142,6 @@ Fica claro que este nó **The Beatles** é o maior, e como definimos anteriormen
 
 ## Implementação
 
-```
-O que deve ser entregue?
-  • O relatório da etapa anterior revisado incluindo uma nova seção (5. Implementação) com
-    a descrição do trabalho de implementação realizado (dificuldades, pontos positivos e
-    negativos, etc). Incluir o link do repositório Github com a implementação do(s) grafo(s)
-    utilizando JGraphT.
-```
 Para representar o grafos definidos na seção anterior, foi utilizado o [repositório](https://github.com/matheusps/spotigraphs) do github que já vinha armazenando os algoritmos de coleta e filtragem de dados.
 
 Assim, foi utilizada uma biblioteca *Java* gratuita para trabalhar com algoritmos de grafos indicada pelo professor e chamada [*JGraphT*](https://jgrapht.org/).
@@ -165,4 +158,3 @@ Primeiro, as informações coletadas foram armazenadas em memória através da c
 Então foram desenvolvidos dois arquivos utilitários, um para realizar a leitura dos [dados](../spotigraph/src/main/java/org/spotigraph/IOUtils.java) coletados anteriormente, e outro para executar a criação do [grafo](../spotigraph/src/main/java/org/spotigraph/GraphUtils.java).
 
 Em continuidade, foi criado um [arquivo](../spotigraph/src/main/java/org/spotigraph/App.java) que seria responsável por gerenciar todos os demais, e a partir de onde a aplicação seria iniciada.
-
