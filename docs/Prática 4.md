@@ -101,7 +101,7 @@ Tal estrutura nos permite iterar sobre os vértices e encontrar as repostas para
 - Metodologia: Neste problema será feita uma varredura entres os artistas, verificando se existem artistas exclusivos a uma única *playlist*. Por outro lado, verifica-se dados dois artistas se existe um caminho entre eles, o que possibilitaria a criação de uma nova *playlist* no sistema, com todos os nós pertencentes ao caminho.
 
 
-**3. Quais *playlists* formam grafos conectados e quais são heterogêneos considerando os artistas que as compõem?**
+**3. Considerando os artistas que compõem um *playlist*, e suas listas de relacionados, quais *playlists* já encontram-se relacionadas, e quais podem ser interligadas ao se adicionar um novo artista presente na lista de relacionados dos já pertencentes a *playlist*?**
 
 - Motivo: Esse problema tem como objetivo identificar quais as *playlists* mais coesas, ou seja, aquelas cujos artistas têm relações com outros membros da mesma *playlist*, identificando assim um conjunto que pode representar um determinado gênero, região ou período temporal de relacionamento dos artistas.
 
@@ -158,3 +158,16 @@ Primeiro, as informações coletadas foram armazenadas em memória através da c
 Então foram desenvolvidos dois arquivos utilitários, um para realizar a leitura dos [dados](../spotigraph/src/main/java/org/spotigraph/IOUtils.java) coletados anteriormente, e outro para executar a criação do [grafo](../spotigraph/src/main/java/org/spotigraph/GraphUtils.java).
 
 Em continuidade, foi criado um [arquivo](../spotigraph/src/main/java/org/spotigraph/App.java) que seria responsável por gerenciar todos os demais, e a partir de onde a aplicação seria iniciada.
+
+
+## Resultados e Discussões
+```
+- Etapas:
+1. Utilizar o ferramental fornecido pelo JGraphT para responder as perguntas
+selecionadas.
+2. Analisar e discutir os resultados obtidos.
+
+- O que deve ser entregue?
+Esta seção deve incluir a descrição das técnicas usadas (algoritmos, conceitos, etc) para
+resolver cada pergunta, bem como apresentar e discutir os resultados alcançados.
+```
