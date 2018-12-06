@@ -26,7 +26,8 @@ public class App
         // note undirected edges are printed as: {<v1>,<v2>}
         System.out.println("-- toString output");
         //@example:toString:begin
-        System.out.println(stringGraph.toString());
+        System.out.println(playlistMap.containsKey("Tops"));
+        System.out.println(Problems.problem1Solver(playlistMap.get("Tops")));
         //@example:toString:end
         System.out.println();
     }
