@@ -188,6 +188,15 @@ No segundo problema, a abordagem ...
 *	Código Exemplo:
 ```
 ```
+Dada a quarta questão foi utilizado o método *problem4Solver(Playlist currentPlayList)*, que tem como entrada todas as playlists presentes na base de dados. Assim para cada artista na playlist, adiciona-se um vértice para o artista e, para cada artista relacionado, adiciona-se um vértice para o artista relacionado e pode ou não adicionar uma aresta entre os artistas da playList e o relacionado. Logo após, o algoritmo faz uma varredura em todos os vértices e utilizando a biblioteca do JGraph verifica qual o(s) artista(s) que tem ou têm o maior grau entre as playlist e entre os relacionamentos de artistas.
+
+Como exempĺo, utilizamos o código abaixo que lista Madonna como a artista mais popular nas playlists e mais popular na lista de artistas relacionados.
+
 *	Código Exemplo:
 ```
+Chamada do Método:
+	System.out.println(Problems.problem4Solver(playlistMap.get("Tops")));
+	
+Resultado:
+	[Madonna] 
 ```
