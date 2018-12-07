@@ -31,7 +31,9 @@ public class App
         System.out.println(Problems.problem1Solver(playlistMap.get("Tops")));
         ArrayList<Playlist> playlists = new ArrayList<>();
         playlists.add(playlistMap.get("Tops"));
-        System.out.println(Problems.problem2Solver(playlists));
+        Artist a1 = artistMap.get("Madona");
+        Artist a2 = artistMap.get("Slayer");
+        System.out.println(Problems.problem2Solver(playlists, a1, a2));
         //@example:toString:end
         System.out.println();
         
