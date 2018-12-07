@@ -113,28 +113,35 @@ public class Problems {
 	 */
 	public static boolean problem2Solver(List<Playlist> playlists, Artist a1, Artist a2) {
 
+	    // Create a graph for store artists from all the playlists
         Graph<String,DefaultEdge> artistsGraph = new WeightedMultigraph<>(DefaultEdge.class);
 
+        //Foreach playlist
         for(Playlist currentPlaylist : playlists ) {
 
-            List<Artist> playListArtists = currentPlaylist.getArtists();
+            // Foreach artist in playlis
+            for (Artist currentArtist : currentPlaylist.getArtists()) {
 
-            List<String> playListArtistsName = new ArrayList<String>();
-            for (int i = 0; i < playListArtists.size(); i++) {
-                playListArtistsName.add(playListArtists.get(i).getName());
-            }
-
-            for (Artist currentArtist : playListArtists) {
+                // Add a vertex to graph containing the artist name
                 artistsGraph.addVertex(currentArtist.getName());
+
+                // Foreach related in artist
                 for (String currentRelated : currentArtist.getRelated()) {
+
+                    // Add vertex containing the name of related
                     artistsGraph.addVertex(currentRelated);
+
+                    // Define edge between artist and its related
                     if (!currentArtist.getName().equals(currentRelated))
                         artistsGraph.addEdge(currentArtist.getName(), currentRelated);
                 }
             }
         }
 
-        return !artistsGraph.getAllEdges(a1.getName(), a2.getName()).isEmpty();
+        // Define is hasPath between two given artists
+        boolean hasPath = !artistsGraph.getAllEdges(a1.getName(), a2.getName()).isEmpty();
+
+        return hasPath;
 	}
 
 	/**
