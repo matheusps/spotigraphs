@@ -176,99 +176,17 @@ Como os resultados obtidos após a especificação, coleta e manipulação dos d
 
 Primeiramente, é importante frisar, que temos um tamanho não muito denso já que tratando-se da temática musical, domínio repleto de artistas dos incontáveis estilos musicais ao redor do mundo, o tamanho da amostra é razoável e talvez não traduza um resultado coerente numa escala mundial.
 
-Para respondermos o primeiro questionamento prosposto, utilizamos uma classe *problem1Solver(Playlist currentPlayList)* para ordenar o
+Para respondermos os questionamentos prospostos, criamos uma clase [Problems](../spotigraph/src/main/java/org/spotigraph/Problems.java) onde conterá metodos para responder cada questão além de uma outra classe, chmada [OrderObject](../spotigraph/src/main/java/org/spotigraph/util/OrderObject.java), que ordena os elementos de determinada estrutura de dados.
+
+Com isso, para o primeiro questionamento, utilizamos o método *problem1Solver(Playlist currentPlayList)* que dada uma *playlist* como entrada, o seu retorno é uma lista ordenada dos artistas mais indicados para, por exemplo, continuar a execução das músicas a partir da relação entre artistas. Assim, e para cada artista na playlist adiciona-se um vértice para o artista e, para cada artista relacionado, adiciona-se um vértice para o artista relacionado e pode ou não adicionar uma aresta entre os o artista da playList e o relacionado. Com isso é cria-se um um rankeamento dos artistas resultantes com maior afinidade, a partir do grau de relação (quantidade de vértices) entre tais.
+
+Como exemplo executamos o código logo abaixo que teve como resultado (para os dados utilizados neste estudo) uma lista repleta de artistas, aos quais, apresentamos uma pequena porção:
 
 ```{Java}
-public static List<String> problem1Solver(Playlist currentPlayList) {
-		
-		//Artistas da playlsit
-		List<Artist> playListArtists = currentPlayList.getArtists();
-		
-		// Lista com Apenas os nomes dos artistas contidos nas playlist, será útil mais abaixo
-		List<String> playListArtistsName = new ArrayList<String>();
-		
-		// Preenchendo a lista
-		for (int i = 0; i < playListArtists.size(); i++) {
-			playListArtistsName.add(playListArtists.get(i).getName());
-		}
-		
-		// criar o grafo de artistas e seus relacionados
-		Graph<String,DefaultEdge> artistsGraph = new WeightedMultigraph<>(DefaultEdge.class);
-		
-		//------------------------- Adicionar Artistas e Inicializar o grafo------
-		
-		// Para cada artista na playlist 
-		for (int i = 0; i < playListArtists.size(); i++) {
-			
-			// Artista
-			String artist = playListArtists.get(i).getName(); 
-			
-			// Adiciona um vértice para o artista
-			artistsGraph.addVertex(artist);
-			
-			// E para cada artista relacionado
-			for (int j = 0; j < playListArtists.get(i).getRelated().size(); j++) {
-				
-				// Artista relacionado
-				String related = playListArtists.get(i).getRelated().get(j);
-				
-				// Adiciona um vértice para o artista relacionado
-				artistsGraph.addVertex(related);
-				
-				// Adiciona uma aresta entre os o artista da playList e o relacionado
-				if(!artist.equals(related)) {
-					artistsGraph.addEdge(artist, related);
-				}
-				
-			}
-			
-		}
-		
-		
-		List<OrderObject<String>> rankedArtist = new ArrayList<OrderObject<String>>();
-		
-		Iterator<String> artists = artistsGraph.vertexSet().iterator();
-				
-		// Para todos os artistas relacionados 
-		while (artists.hasNext()) {
-						
-			// Artista
-			String artist = artists.next();
-			
-			if(!playListArtistsName.contains(artist)) {
-				Integer numberOfEdgs = artistsGraph.edgesOf(artist).size();
-				OrderObject<String> order = new OrderObject<String>(numberOfEdgs, artist);
-				rankedArtist.add(order);
-			}
-		
-		}
-		
-		// Sorting
-		Collections.sort(rankedArtist, new Comparator<OrderObject>() {
-		       
-				@Override
-				public int compare(OrderObject order2, OrderObject order1)
-		        {
-
-		            return  order1.getValue().compareTo(order2.getValue());
-		        }
-				
-		    });
-		
-		List<String> sortArtistList = new ArrayList<String>();
-		for (int j = 0; j < rankedArtist.size(); j++) {
-			sortArtistList.add(rankedArtist.get(j).getObj());
-		}
-		
-		return sortArtistList;
-		
-	}
-  System.out.println(playlistMap.containsKey("Tops")); // only test
-  System.out.println(Problems.problem1Solver(playlistMap.get("Tops"))); //
-  
-  
-[Demi Lovato, Britney Spears, Glee, Chris Brown, Shakira, Selena Gomez, Jennifer Lopez, Beyoncé, Miley Cyrus, Pitbull, Jessie J, Justin Bieber, David Guetta, Maroon 5, Black Eyed Peas, Heartbreak, Lady Gaga, Taylor Swift, Kesha, Pink, Evanescence, Hits - Antigos,  mas nem tanto, Love Mixtape, Retrospectiva 2016, Flo Rida, LMFAO, Coldplay, Adele, Hits Anos 90, Nicki Minaj, Colbie Caillat, Paramore, Nickelback, Festa de Formatura, Festa de Ano Novo, U2, Kelly Clarkson, Romântico, blink-182, Christina Aguilera, Restart, Mariah Carey, Rebeldes, Ana Carolina, #Deprê, Eminem, Férias, Linkin Park, Christina Perri, Muse, Natal, Nicole Scherzinger, Músicas que fizeram história, Red Hot Chili Peppers, Para Viajar, Festa de Ano Novo 2017, todateen, MTV MIAW 2018, Los Hermanos, Pitty, Capital Inicial, Sertanejo Hits, Avenged Sevenfold, Simple Plan, Nostalgia (anos 2000), John Mayer, The Pussycat Dolls, Pearl Jam, Nirvana, Pink Floyd, Foo Fighters, The Beatles, Green Day, Bon Jovi, Guns N' Roses, Metallica, AC/DC, Pop Rock, Thalía, Roxette, Laura Pausini, Céline Dion, Whitney Houston, Paula Fernandes, Maná, Alejandro Sanz, Dulce María, Anahí, Ricky Martin, RBD, Latina, Reggaeton, Hits Anos 80, Flashback, Katy Perry, KHarlles, Kylie Minogue, Tony Bennett & Lady Gaga, Destiny's Child, O Melhor de Rihanna, Saga Crepúsculo, Florence And The Machine, Robert Pattinson, Temas de Filmes, Indie Pop, Michael Jackson, Lil Wayne, Dev, One Direction, O Melhor de Madonna, Pop Anos 90, Above & Beyond, Alexandra Stan, Tiësto, Armin Van Buuren, Tiko's Groove, Cobra Starship, Martin Solveig, Swedish House Mafia, Humberto e Ronaldo, Markus Schulz, Aly & Fila, Dj Shah, Dash Berlin, Nic Chagall, Josh Gabriel, Paul Van Dyk, Fedde Le Grand, Skrillex, deadmau5, Para Trabalhar, Adrenalina, Lançamentos, Marisa Monte, Adriana Calcanhotto, Caetano Veloso, Vanessa da Mata, Kid Abelha, Lulu Santos, Djavan, Titãs, Cássia Eller, Cazuza, Os Paralamas do Sucesso, Nando Reis, Skank, Jota Quest, Maria Gadú, Ivete Sangalo, Arnaldo Antunes, Carlinhos Brown, Maria Rita, Jorge Vercillo, Lenine, Chico Buarque, Seu Jorge, Roberto Carlos, Leoni, MPB, Letras Conhecidas (Nacionais), Músicas para Jantar a Dois, Strike, Forfun, Scracho, ConeCrewDiretoria, CPM 22, Armandinho, Projota, Turma do Pagode, Fresno, Natiruts, Nx Zero, Legião Urbana, Fernando e Sorocaba, ExaltaSamba, Sorriso Maroto, Avril Lavigne, Dance of Days, Hevo84, Cine, Detonautas, Bonde da Stronda, Manu Gavassi, Rap Nacional, James Blunt, Lifehouse, Lady Antebellum, He Is We, Jason Mraz, R&B, Wild Orchid, will.i.am, Far East Movement, Akon, Taio Cruz, Pop, Arctic Monkeys, The Killers, The Strokes, Kings Of Leon, Jack Johnson, Engenheiros do Hawaii, Alex Turner, The Last Shadow Puppets, Franz Ferdinand, The Kooks, Ritz, MGMT, Foster The People, Panic! At The Disco, Rock - De Bowie ao século 21, Monday, Led Zeppelin, Scorpions, Queen, Creed, Iron Maiden, Jimi Hendrix, Janis Joplin, Deep Purple, The Doors, Black Sabbath, Ramones, Kiss, Rolling Stones, Ozzy Osbourne, Rock - Das Raízes ao Progressivo, Heavy Metal]
-
-
+Código Exemplo:
+	System.out.println(Problems.problem1Solver(playlistMap.get("Tops"))); //
+    
+Resultado:
+	[Demi Lovato, Britney Spears, Glee, Chris Brown, Shakira, Selena Gomez, Jennifer Lopez, Beyoncé, Miley Cyrus, Pitbull, Jessie J, Justin Bieber, David Guetta, Maroon 5, Black Eyed Peas, ...]
 ```
 
