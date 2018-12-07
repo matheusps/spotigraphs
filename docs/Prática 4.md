@@ -171,3 +171,99 @@ selecionadas.
 Esta seção deve incluir a descrição das técnicas usadas (algoritmos, conceitos, etc) para
 resolver cada pergunta, bem como apresentar e discutir os resultados alcançados.
 ```
+
+Como os resultados obtidos após a especificação, coleta e manipulação dos dados, podemos responder os questionamentos anteriormente definidos além de listar fatores interessantes analisando tais resultados.
+
+Primeiramente, é importante frisar, que temos um tamanho não muito denso já que tratando-se da temática musical, domínio repleto de artistas dos incontáveis estilos musicais ao redor do mundo, o tamanho da amostra é razoável e talvez não traduza um resultado coerente numa escala mundial.
+
+Para respondermos o primeiro questionamento prosposto, utilizamos uma classe *problem1Solver(Playlist currentPlayList)* para ordenar o
+
+```{Java}
+public static List<String> problem1Solver(Playlist currentPlayList) {
+		
+		//Artistas da playlsit
+		List<Artist> playListArtists = currentPlayList.getArtists();
+		
+		// Lista com Apenas os nomes dos artistas contidos nas playlist, será útil mais abaixo
+		List<String> playListArtistsName = new ArrayList<String>();
+		
+		// Preenchendo a lista
+		for (int i = 0; i < playListArtists.size(); i++) {
+			playListArtistsName.add(playListArtists.get(i).getName());
+		}
+		
+		// criar o grafo de artistas e seus relacionados
+		Graph<String,DefaultEdge> artistsGraph = new WeightedMultigraph<>(DefaultEdge.class);
+		
+		//------------------------- Adicionar Artistas e Inicializar o grafo------
+		
+		// Para cada artista na playlist 
+		for (int i = 0; i < playListArtists.size(); i++) {
+			
+			// Artista
+			String artist = playListArtists.get(i).getName(); 
+			
+			// Adiciona um vértice para o artista
+			artistsGraph.addVertex(artist);
+			
+			// E para cada artista relacionado
+			for (int j = 0; j < playListArtists.get(i).getRelated().size(); j++) {
+				
+				// Artista relacionado
+				String related = playListArtists.get(i).getRelated().get(j);
+				
+				// Adiciona um vértice para o artista relacionado
+				artistsGraph.addVertex(related);
+				
+				// Adiciona uma aresta entre os o artista da playList e o relacionado
+				if(!artist.equals(related)) {
+					artistsGraph.addEdge(artist, related);
+				}
+				
+			}
+			
+		}
+		
+		
+		List<OrderObject<String>> rankedArtist = new ArrayList<OrderObject<String>>();
+		
+		Iterator<String> artists = artistsGraph.vertexSet().iterator();
+				
+		// Para todos os artistas relacionados 
+		while (artists.hasNext()) {
+						
+			// Artista
+			String artist = artists.next();
+			
+			if(!playListArtistsName.contains(artist)) {
+				Integer numberOfEdgs = artistsGraph.edgesOf(artist).size();
+				OrderObject<String> order = new OrderObject<String>(numberOfEdgs, artist);
+				rankedArtist.add(order);
+			}
+		
+		}
+		
+		// Sorting
+		Collections.sort(rankedArtist, new Comparator<OrderObject>() {
+		       
+				@Override
+				public int compare(OrderObject order2, OrderObject order1)
+		        {
+
+		            return  order1.getValue().compareTo(order2.getValue());
+		        }
+				
+		    });
+		
+		List<String> sortArtistList = new ArrayList<String>();
+		for (int j = 0; j < rankedArtist.size(); j++) {
+			sortArtistList.add(rankedArtist.get(j).getObj());
+		}
+		
+		return sortArtistList;
+		
+	}
+  System.out.println(playlistMap.containsKey("Tops"));
+  System.out.println(Problems.problem1Solver(playlistMap.get("Tops")));
+```
+
