@@ -195,7 +195,7 @@ Como exempĺo, utilizamos o código abaixo que lista Madonna como a artista mais
 *	Código Exemplo:
 ```
 Chamada do Método:
-	System.out.println(Problems.problem4Solver(playlists));
+	System.out.println(Problems.problem4Solver(playlistMap.get("Tops")));
 	
 Resultado:
 	[Madonna] 
