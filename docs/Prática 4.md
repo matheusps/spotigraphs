@@ -168,35 +168,4 @@ Primeiramente, é importante frisar, que temos um tamanho não muito denso já q
 
 Para respondermos os questionamentos prospostos, criamos uma clase [Problems](../spotigraph/src/main/java/org/spotigraph/Problems.java) onde conterá metodos para responder cada questão além de uma outra classe, chmada [OrderObject](../spotigraph/src/main/java/org/spotigraph/util/OrderObject.java), que ordena os elementos de determinada estrutura de dados.
 
-Com isso, para o primeiro questionamento, utilizamos o método *problem1Solver(Playlist currentPlayList)* que dada uma *playlist* como entrada, o seu retorno é uma lista ordenada dos artistas mais indicados para, por exemplo, continuar a execução das músicas a partir da relação entre artistas. Assim para cada artista na playlist, adiciona-se um vértice para o artista e, para cada artista relacionado, adiciona-se um vértice para o artista relacionado e pode ou não adicionar uma aresta entre os o artista da playList e o relacionado. Com isso é cria-se um um rankeamento dos artistas resultantes com maior afinidade, a partir do grau de relação (quantidade de vértices) entre tais artistas.
-
-Como exemplo executamos o código logo abaixo que teve como resultado (para os dados utilizados neste estudo) uma lista repleta de artistas, aos quais, apresentamos uma pequena porção:
-
-*	Código Exemplo:
-```
-Chamada do Método:
-	System.out.println(Problems.problem1Solver(playlistMap.get("Tops")));
-    
-Resultado:
-	[Demi Lovato, Britney Spears, Glee, Chris Brown, Shakira, Selena Gomez, Jennifer Lopez, Beyoncé, Miley Cyrus, Pitbull, Jessie J, Justin Bieber, David Guetta, Maroon 5, Black Eyed Peas, ...]
-```
-No segundo problema, a abordagem ...
-
-*	Código Exemplo:
-```
-```
-*	Código Exemplo:
-```
-```
-Dada a quarta questão foi utilizado o método *problem4Solver(Playlist currentPlayList)*, que tem como entrada todas as playlists presentes na base de dados. Assim para cada artista na playlist, adiciona-se um vértice para o artista e, para cada artista relacionado, adiciona-se um vértice para o artista relacionado e pode ou não adicionar uma aresta entre os artistas da playList e o relacionado. Logo após, o algoritmo faz uma varredura em todos os vértices e utilizando a biblioteca do JGraph verifica qual o(s) artista(s) que tem ou têm o maior grau entre as playlist e entre os relacionamentos de artistas.
-
-Como exempĺo, utilizamos o código abaixo que lista Madonna como a artista mais popular nas playlists e mais popular na lista de artistas relacionados.
-
-*	Código Exemplo:
-```
-Chamada do Método:
-	System.out.println(Problems.problem4Solver(playlistMap.get("Tops")));
-	
-Resultado:
-	[Madonna] 
-```
+Para encontrar a solução das questões basta observar o código contido no arquivo [Problems](../spotigraph/src/main/java/org/spotigraph/Problems.java), e para verificar a execução de um exemplo de uso, execute o arquivo [App](../spotigraph/src/main/java/org/spotigraph/App.java).
