@@ -3,6 +3,7 @@ package org.spotigraph;
 import org.jgrapht.Graph;
 import org.jgrapht.graph.DefaultEdge;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,6 +29,9 @@ public class App
         //@example:toString:begin
         System.out.println(playlistMap.containsKey("Tops"));
         System.out.println(Problems.problem1Solver(playlistMap.get("Tops")));
+        ArrayList<Playlist> playlists = new ArrayList<>();
+        playlists.add(playlistMap.get("Tops"));
+        System.out.println(Problems.problem2Solver(playlists));
         //@example:toString:end
         System.out.println();
         

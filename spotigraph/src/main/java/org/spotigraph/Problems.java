@@ -11,6 +11,7 @@ import org.jgrapht.Graph;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.WeightedMultigraph;
 import org.spotigraph.util.OrderObject;
+import sun.security.provider.certpath.Vertex;
 
 
 public class Problems {
@@ -107,12 +108,33 @@ public class Problems {
 	}
 	
 	/**
-	 * Existem artistas exclusivos, aqueles que estão contidos em apenas uma playlist? 
-	 * Dados dois artistas, que não estão na lista de relacionados entre si,
+     * Dados dois artistas, que não estão na lista de relacionados entre si,
 	 * é possível caminhar de um até o outro usando o grafo?
 	 */
-	public static void problem2Solver() {
-		
+	public static boolean problem2Solver(List<Playlist> playlists, Artist a1, Artist a2) {
+
+        Graph<String,DefaultEdge> artistsGraph = new WeightedMultigraph<>(DefaultEdge.class);
+
+        for(Playlist currentPlaylist : playlists ) {
+
+            List<Artist> playListArtists = currentPlaylist.getArtists();
+
+            List<String> playListArtistsName = new ArrayList<String>();
+            for (int i = 0; i < playListArtists.size(); i++) {
+                playListArtistsName.add(playListArtists.get(i).getName());
+            }
+
+            for (Artist currentArtist : playListArtists) {
+                artistsGraph.addVertex(currentArtist.getName());
+                for (String currentRelated : currentArtist.getRelated()) {
+                    artistsGraph.addVertex(currentRelated);
+                    if (!currentArtist.getName().equals(currentRelated))
+                        artistsGraph.addEdge(currentArtist.getName(), currentRelated);
+                }
+            }
+        }
+
+        return !artistsGraph.getAllEdges(a1.getName(), a2.getName()).isEmpty();
 	}
 
 	/**
@@ -124,7 +146,7 @@ public class Problems {
 	public static void problem3Solver() {
 		
 	}
-	
+
 	/**
 	 * Qual(ais) o(s) artista(s) mais popular(es),
 	 * aquele presente em mais playlists e aquele mais presente na lista de relacionados?
