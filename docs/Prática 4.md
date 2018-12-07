@@ -182,9 +182,10 @@ Com isso, para o primeiro questionamento, utilizamos o método *problem1Solver(P
 
 Como exemplo executamos o código logo abaixo que teve como resultado (para os dados utilizados neste estudo) uma lista repleta de artistas, aos quais, apresentamos uma pequena porção:
 
+*	Código Exemplo:
 ```{Java}
-Código Exemplo:
-	System.out.println(Problems.problem1Solver(playlistMap.get("Tops"))); //
+Chamada do Método:
+	System.out.println(Problems.problem1Solver(playlistMap.get("Tops")));
     
 Resultado:
 	[Demi Lovato, Britney Spears, Glee, Chris Brown, Shakira, Selena Gomez, Jennifer Lopez, Beyoncé, Miley Cyrus, Pitbull, Jessie J, Justin Bieber, David Guetta, Maroon 5, Black Eyed Peas, ...]
