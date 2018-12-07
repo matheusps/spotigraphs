@@ -129,8 +129,46 @@ public class Problems {
 	 * Qual(ais) o(s) artista(s) mais popular(es),
 	 * aquele presente em mais playlists e aquele mais presente na lista de relacionados?
 	 */
-	public static void problem4Solver() {
+	public static List<String> problem4Solver(Playlist currentPlayList) {
 		
+		//Todos os objetos Artista
+		List<Artist> playListArtists = currentPlayList.getArtists();
+		
+		//Criando grafo de artistas e seus relacionados
+		Graph<String,DefaultEdge> artistsGraph = new WeightedMultigraph<>(DefaultEdge.class);
+		
+		//Preenchendo o grafo de artistas juntamente com seus relacionados
+		for (int i = 0; i < playListArtists.size(); i++) {
+			String artist = playListArtists.get(i).getName();
+			artistsGraph.addVertex(artist);
+			for (int j = 0; j < playListArtists.get(i).getRelated().size(); j++) {
+				String related = playListArtists.get(i).getRelated().get(j);
+				artistsGraph.addVertex(related);
+				if(!artist.equals(related)) {
+					artistsGraph.addEdge(artist, related);
+				}
+			}	
+		}
+		
+		//Iteração para buscar o(s) artista(s) de maior grau
+		Iterator<String> artists = artistsGraph.vertexSet().iterator();
+		Integer greatestDegree = 0;
+		List<String> greatestArtists = new ArrayList<String>();
+		
+		while (artists.hasNext()) {
+			String artist = artists.next();
+			Integer artistDegree = artistsGraph.degreeOf(artist);
+			if(artistDegree == greatestDegree){
+				greatestArtists.add(artist);
+			} else if(artistDegree > greatestDegree){
+				greatestDegree = artistDegree;
+				greatestArtists = new ArrayList<String>();
+				greatestArtists.add(artist);
+			}	
+		}
+		
+		//Retorna o(s) artista(s) de maior grau
+		return greatestArtists;
 	}
 	
 }
