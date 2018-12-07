@@ -171,3 +171,33 @@ selecionadas.
 Esta seção deve incluir a descrição das técnicas usadas (algoritmos, conceitos, etc) para
 resolver cada pergunta, bem como apresentar e discutir os resultados alcançados.
 ```
+
+Como os resultados obtidos após a especificação, coleta e manipulação dos dados, podemos responder os questionamentos anteriormente definidos além de listar fatores interessantes analisando tais resultados.
+
+Primeiramente, é importante frisar, que temos um tamanho não muito denso já que tratando-se da temática musical, domínio repleto de artistas dos incontáveis estilos musicais ao redor do mundo, o tamanho da amostra é razoável e talvez não traduza um resultado coerente numa escala mundial.
+
+Para respondermos os questionamentos prospostos, criamos uma clase [Problems](../spotigraph/src/main/java/org/spotigraph/Problems.java) onde conterá metodos para responder cada questão além de uma outra classe, chmada [OrderObject](../spotigraph/src/main/java/org/spotigraph/util/OrderObject.java), que ordena os elementos de determinada estrutura de dados.
+
+Com isso, para o primeiro questionamento, utilizamos o método *problem1Solver(Playlist currentPlayList)* que dada uma *playlist* como entrada, o seu retorno é uma lista ordenada dos artistas mais indicados para, por exemplo, continuar a execução das músicas a partir da relação entre artistas. Assim para cada artista na playlist, adiciona-se um vértice para o artista e, para cada artista relacionado, adiciona-se um vértice para o artista relacionado e pode ou não adicionar uma aresta entre os o artista da playList e o relacionado. Com isso é cria-se um um rankeamento dos artistas resultantes com maior afinidade, a partir do grau de relação (quantidade de vértices) entre tais artistas.
+
+Como exemplo executamos o código logo abaixo que teve como resultado (para os dados utilizados neste estudo) uma lista repleta de artistas, aos quais, apresentamos uma pequena porção:
+
+*	Código Exemplo:
+```
+Chamada do Método:
+	System.out.println(Problems.problem1Solver(playlistMap.get("Tops")));
+    
+Resultado:
+	[Demi Lovato, Britney Spears, Glee, Chris Brown, Shakira, Selena Gomez, Jennifer Lopez, Beyoncé, Miley Cyrus, Pitbull, Jessie J, Justin Bieber, David Guetta, Maroon 5, Black Eyed Peas, ...]
+```
+No segundo problema, a abordagem ...
+
+*	Código Exemplo:
+```
+```
+*	Código Exemplo:
+```
+```
+*	Código Exemplo:
+```
+```
