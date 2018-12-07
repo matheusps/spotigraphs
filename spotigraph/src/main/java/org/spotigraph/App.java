@@ -30,5 +30,13 @@ public class App
         System.out.println(Problems.problem1Solver(playlistMap.get("Tops")));
         //@example:toString:end
         System.out.println();
+        
+        // note undirected edges are printed as: {<v1>,<v2>}
+        System.out.println("-- toString output");
+        //@example:toString:begin
+        System.out.println(playlistMap.containsKey("Tops"));
+        System.out.println(Problems.problem4Solver(playlistMap.get("Tops")));
+        //@example:toString:end
+        System.out.println();
     }
 }
