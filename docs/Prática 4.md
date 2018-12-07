@@ -161,16 +161,6 @@ Em continuidade, foi criado um [arquivo](../spotigraph/src/main/java/org/spotigr
 
 
 ## Resultados e Discussões
-```
-- Etapas:
-1. Utilizar o ferramental fornecido pelo JGraphT para responder as perguntas
-selecionadas.
-2. Analisar e discutir os resultados obtidos.
-
-- O que deve ser entregue?
-Esta seção deve incluir a descrição das técnicas usadas (algoritmos, conceitos, etc) para
-resolver cada pergunta, bem como apresentar e discutir os resultados alcançados.
-```
 
 Como os resultados obtidos após a especificação, coleta e manipulação dos dados, podemos responder os questionamentos anteriormente definidos além de listar fatores interessantes analisando tais resultados.
 
